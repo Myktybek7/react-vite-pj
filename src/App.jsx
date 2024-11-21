@@ -13,8 +13,17 @@ function App() {
   });
 
   const [message, setMessage] = useState('');
+
+  const promotePerson = () => {
+    setPerson((prevPerson) => ({
+      ...prevPerson,
+      position: prevPerson.position === 'Junior' ? 'Senior' : 'Junior'
+    }));
+  };
+
   const showMessage = () => {
-    setMessage('Hello, ' + person.name + '! Welcome to company!');
+    setMessage('Hello, ' + person.name + '! Welcome to the company!');
+    promotePerson();
   };
 
   return (
@@ -28,10 +37,10 @@ function App() {
       <p><strong>Experience:</strong> {person.experience}</p>
 
       {message && <p>{message}</p>}
-      
-      <button onClick={showMessage}>Повысить в должность</button>
 
-
+      <button onClick={showMessage}>
+        Promote to {person.position === 'Junior' ? 'Senior' : 'Junior'}
+      </button>
     </div>
   );
 }
