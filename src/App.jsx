@@ -29,7 +29,8 @@ function App() {
 
       {message && <p>{message}</p>}
       
-      <button onClick={showMessage}>show message</button>
+      <button onClick={showMessage}>Повысить в должность</button>
+
 
     </div>
   );
